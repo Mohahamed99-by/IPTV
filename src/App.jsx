@@ -1,9 +1,10 @@
 import React from 'react';
-import IPTVServicesTemplate from "./IPTVServicesTemplate/IPTVServicesTemplate";
+import IPTVRouter from './IPTVServicesTemplate/IPTVRouter';
 
 const App = () => {
   return (
-    <IPTVServicesTemplate basename="/iptv" />
+    // <IPTVServicesTemplate basename="/IPTV" />
+    <IPTVRouter basename="/IPTV" />
   );
 };
 
