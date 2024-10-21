@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './NavBar';
 import IPTVPackages from './IPTVPackages';
 import Home from './Home';
+import Contact from './Contact';
 
 const IPTVRouter = () => {
     return (
@@ -12,7 +13,7 @@ const IPTVRouter = () => {
             <Routes>
               <Route path="/IPTV/" element={<Home />} />
               <Route path="/packages/IPTV" element={<IPTVPackages />} />
-              {/* <Route path="/contact" element={<Contact />} /> */}
+              <Route path="/contact" element={<Contact />} />
             </Routes>
           </div>
           

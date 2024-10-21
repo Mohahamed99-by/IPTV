@@ -1,8 +1,10 @@
+import { Gift } from 'lucide-react';
 
 const WHATSAPP_NUMBER = "212612455372";
-const IPTVPackage = ({ title, description, price, icon }) => {
+
+const IPTVPackage = ({ title, description, price, icon, originalPrice }) => {
   const openWhatsApp = () => {
-    const message = encodeURIComponent(`I'm interested in purchasing the ${title} package priced at ${price}. Can you provide more information?`);
+    const message = encodeURIComponent(`I'm interested in purchasing the ${title} package priced at ${price} (including the 3 months free promotion). Can you provide more information?`);
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
   };
 
@@ -14,7 +16,14 @@ const IPTVPackage = ({ title, description, price, icon }) => {
         </div>
         <h3 className="text-xl font-semibold text-center mb-2">{title}</h3>
         <p className="text-gray-600 text-center mb-4">{description}</p>
-        <div className="text-3xl font-bold text-center text-blue-600 mb-4">{price}</div>
+        <div className="text-center mb-4">
+          <span className="text-3xl font-bold text-blue-600">{price}</span>
+          <span className="text-sm text-gray-500 line-through ml-2">{originalPrice}</span>
+        </div>
+        <div className="bg-green-100 text-green-800 text-sm font-medium px-2.5 py-0.5 rounded-full mb-4 flex items-center justify-center">
+          <Gift size={16} className="mr-1" />
+          +3 Months Free
+        </div>
         <button 
           onClick={openWhatsApp}
           className="w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600 transition duration-300 ease-in-out flex items-center justify-center"

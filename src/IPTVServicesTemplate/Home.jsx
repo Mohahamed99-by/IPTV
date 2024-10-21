@@ -1,8 +1,8 @@
 import React from 'react';
-import { Tv, Globe, Zap } from 'lucide-react';
 import VideoSection from './VideoSection';
 import HeroSection from './HeroSection';
 import IPTVPackages from './IPTVPackages';
+import Footer from './Footer';
 
 
 const Home = () => {
@@ -14,6 +14,7 @@ const Home = () => {
         <HeroSection />
         <VideoSection />
         <IPTVPackages />
+        <Footer />
       </div>
     </div>
   );
