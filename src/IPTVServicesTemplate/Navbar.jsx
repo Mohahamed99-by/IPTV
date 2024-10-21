@@ -30,7 +30,7 @@ const Navbar = () => {
             Packages
           </NavLink>
           <NavLink 
-            to="/contact" 
+            to="/contact/IPTV" 
             className={({ isActive }) =>
               isActive ? "text-white font-bold" : "text-white hover:text-blue-200"
             }
@@ -52,21 +52,21 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden bg-gradient-to-r from-blue-500 to-purple-600p-4 space-y-4">
           <NavLink 
-            to="/" 
+            to="/IPTV" 
             className="block text-white hover:text-blue-200"
             onClick={() => setIsOpen(false)}
           >
             Home
           </NavLink>
           <NavLink 
-            to="/packages" 
+            to="/packages/IPTV" 
             className="block text-white hover:text-blue-200"
             onClick={() => setIsOpen(false)}
           >
             Packages
           </NavLink>
           <NavLink 
-            to="/contact" 
+            to="/contact/IPTV" 
             className="block text-white hover:text-blue-200"
             onClick={() => setIsOpen(false)}
           >

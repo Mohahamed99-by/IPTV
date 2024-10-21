@@ -13,7 +13,7 @@ const IPTVRouter = () => {
             <Routes>
               <Route path="/IPTV/" element={<Home />} />
               <Route path="/packages/IPTV" element={<IPTVPackages />} />
-              <Route path="/contact" element={<Contact />} />
+              <Route path="/contact/IPTV" element={<Contact />} />
             </Routes>
           </div>
           
