@@ -3,7 +3,7 @@ import { Mail, Phone } from 'lucide-react';
 import { useDarkMode } from './DarkModeContext'; // Adjust path as needed
 
 const Contact = () => {
-  const { darkMode, toggleDarkMode } = useDarkMode(); // Access dark mode context
+  const { darkMode } = useDarkMode(); // Access dark mode context
 
   return (
     <div className={`bg-gradient-to-br mt-24 p-8 rounded-xl shadow-lg max-w-md mx-auto 
@@ -15,7 +15,7 @@ const Contact = () => {
         <a 
           href="mailto:med.chemaou@gmail.com" 
           className={`flex items-center p-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 group 
-                      ${darkMode ? 'bg-gray-800' : 'bg-white'}`}
+                      ${darkMode ? 'bg-gray-800' : 'bg-white'} border ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}
         >
           <div className={`p-3 rounded-full transition-colors duration-300 
                           ${darkMode ? 'bg-blue-900 group-hover:bg-blue-700' : 'bg-blue-100 group-hover:bg-blue-200'}`}>
@@ -29,7 +29,7 @@ const Contact = () => {
         <a 
           href="tel:+212620077755" 
           className={`flex items-center p-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 group 
-                      ${darkMode ? 'bg-gray-800' : 'bg-white'}`}
+                      ${darkMode ? 'bg-gray-800' : 'bg-white'} border ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}
         >
           <div className={`p-3 rounded-full transition-colors duration-300 
                           ${darkMode ? 'bg-green-900 group-hover:bg-green-700' : 'bg-green-100 group-hover:bg-green-200'}`}>
