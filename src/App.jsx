@@ -1,4 +1,5 @@
 
+import { DarkModeProvider } from "./IPTVServicesTemplate/DarkModeContext.jsx";
 import IPTVRouter from "./IPTVServicesTemplate/IPTVRouter.jsx";
 import React from 'react';
 function App() {
@@ -6,9 +7,11 @@ function App() {
 
   return (
     <>
-   
-      <IPTVRouter basename="/IPTV"/>
+   <DarkModeProvider >
+    <IPTVRouter basename="/IPTV"/>
      
+   </DarkModeProvider>
+      
       
     </>
   )

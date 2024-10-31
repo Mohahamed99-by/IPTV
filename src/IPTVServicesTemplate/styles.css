@@ -1,0 +1,13 @@
+/* styles.css */
+body {
+    background-color: #1a1a1a; /* Default dark mode */
+    color: #fff; /* Default text color */
+    margin: 0; /* Reset margin */
+    font-family: Arial, sans-serif; /* Example font family */
+}
+
+/* Light mode styles */
+body.light {
+    background-color: #f0f0f0; /* Light background */
+    color: #000; /* Light text */
+}
