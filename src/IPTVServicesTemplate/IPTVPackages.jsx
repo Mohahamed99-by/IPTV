@@ -1,11 +1,16 @@
 import React, { useContext } from 'react';
 import IPTVPackage from './IPTVPackage';
-import { Tv, Globe, Zap } from 'lucide-react';
 import { DarkModeContext } from './DarkModeContext';
+
+// Correct imports for images
+import image1 from "../assets/img/image1.jpeg";
+import image2 from '../assets/img/image2.jpeg';
+import image3 from '../assets/img/image3.jpeg';
 
 function IPTVPackages() {
   const { darkMode } = useContext(DarkModeContext); // Use the custom hook
 
+  // Replace icons with images
   const packages = [
     {
       title: "Basic Package",
@@ -13,7 +18,7 @@ function IPTVPackages() {
       price: "$14.99/month",
       originalPrice: "$16.99/month",
       MonthsFree: "+1 week Free",
-      icon: <Tv size={32} color="white" />
+      icon: image1,  // Correctly assign the image
     },
     {
       title: "Premium Package",
@@ -21,7 +26,7 @@ function IPTVPackages() {
       price: "$24.99/month",
       originalPrice: "$27.99/month",
       MonthsFree: "+1 Month Free",
-      icon: <Globe size={32} color="white" />
+      icon: image2,  // Correctly assign the image
     },
     {
       title: "Ultimate Package",
@@ -29,7 +34,7 @@ function IPTVPackages() {
       price: "$34.99/month",
       originalPrice: "$36.99/month",
       MonthsFree: "+3 Months Free",
-      icon: <Zap size={32} color="white" />
+      icon: image3,  // Correctly assign the image
     }
   ];
 

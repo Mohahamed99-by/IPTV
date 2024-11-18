@@ -14,8 +14,8 @@ const IPTVPackage = ({ title, description, price, icon, MonthsFree, originalPric
   return (
     <div className={`rounded-lg shadow-md overflow-hidden transition-transform duration-300 ease-in-out transform hover:scale-105 ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'}`}>
       <div className="p-6">
-        <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mb-4 mx-auto">
-          {icon}
+      <div className="w-40 h-40 mb-4 mx-auto rounded-full overflow-hidden bg-gray-300">
+          <img src={icon} alt={`${title} icon`} className="w-full h-full object-cover" />
         </div>
         <h3 className="text-xl font-semibold text-center mb-2">{title}</h3>
         <p className="text-center mb-4">{description}</p>

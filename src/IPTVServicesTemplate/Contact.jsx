@@ -1,49 +1,107 @@
-import React from 'react';
-import { Mail, Phone } from 'lucide-react';
+import React, { useState } from 'react';
+import { Send, MessageCircle } from 'lucide-react';
 import { useDarkMode } from './DarkModeContext'; // Adjust path as needed
 
 const Contact = () => {
-  const { darkMode } = useDarkMode(); // Access dark mode context
+  const { darkMode } = useDarkMode();
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = () => {
+    const { name, email, message } = formData;
+    const encodedMessage = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
+    );
+    const whatsappUrl = `https://wa.me/?text=${encodedMessage}`;
+    
+    window.open(whatsappUrl, '_blank');
+  };
 
   return (
-    <div className={`bg-gradient-to-br mt-24 p-8 rounded-xl shadow-lg max-w-md mx-auto 
-                     ${darkMode ? 'from-gray-800 to-gray-900' : 'from-blue-50 to-indigo-100'}`}>
-      <h2 className={`text-3xl font-bold mb-6 text-center ${darkMode ? 'text-white' : 'text-gray-800'}`}>
-        Contact Us
-      </h2>
-      <div className="space-y-6">
-        <a 
-          href="mailto:med.chemaou@gmail.com" 
-          className={`flex items-center p-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 group 
-                      ${darkMode ? 'bg-gray-800' : 'bg-white'} border ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}
-        >
-          <div className={`p-3 rounded-full transition-colors duration-300 
-                          ${darkMode ? 'bg-blue-900 group-hover:bg-blue-700' : 'bg-blue-100 group-hover:bg-blue-200'}`}>
-            <Mail className={`${darkMode ? 'text-blue-300' : 'text-blue-600'}`} size={24} />
-          </div>
-          <span className={`ml-4 group-hover:text-blue-600 transition-colors duration-300 
-                           ${darkMode ? 'text-gray-200 group-hover:text-blue-400' : 'text-gray-700'}`}>
-            med.chemaou@gmail.com
-          </span>
-        </a>
-        <a 
-          href="tel:+212620077755" 
-          className={`flex items-center p-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 group 
-                      ${darkMode ? 'bg-gray-800' : 'bg-white'} border ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}
-        >
-          <div className={`p-3 rounded-full transition-colors duration-300 
-                          ${darkMode ? 'bg-green-900 group-hover:bg-green-700' : 'bg-green-100 group-hover:bg-green-200'}`}>
-            <Phone className={`${darkMode ? 'text-green-300' : 'text-green-600'}`} size={24} />
-          </div>
-          <span className={`ml-4 group-hover:text-green-600 transition-colors duration-300 
-                           ${darkMode ? 'text-gray-200 group-hover:text-green-400' : 'text-gray-700'}`}>
-            +212 620 077755
-          </span>
-        </a>
+    <div className={`container mx-auto px-4 py-16 ${darkMode ? 'bg-gray-900' : 'bg-white'}`}>
+      <div className={`max-w-xl mx-auto rounded-2xl shadow-2xl p-8 ${darkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
+        <div className="text-center mb-10">
+          <MessageCircle 
+            className={`mx-auto mb-4 ${darkMode ? 'text-white' : 'text-blue-600'}`} 
+            size={48} 
+          />
+          <h2 className={`text-3xl font-bold ${darkMode ? 'text-white' : 'text-gray-800'}`}>
+            Get in Touch
+          </h2>
+          <p className={`mt-2 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+            We'd love to hear from you
+          </p>
+        </div>
+        
+        <div className="space-y-6">
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            value={formData.name}
+            onChange={handleChange}
+            className={`w-full p-3 rounded-lg border-2 focus:outline-none focus:ring-2 
+              ${darkMode 
+                ? 'bg-gray-700 text-white border-gray-600 focus:ring-blue-500' 
+                : 'bg-white text-gray-800 border-gray-300 focus:ring-blue-400'
+              }`}
+          />
+          
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            value={formData.email}
+            onChange={handleChange}
+            className={`w-full p-3 rounded-lg border-2 focus:outline-none focus:ring-2 
+              ${darkMode 
+                ? 'bg-gray-700 text-white border-gray-600 focus:ring-blue-500' 
+                : 'bg-white text-gray-800 border-gray-300 focus:ring-blue-400'
+              }`}
+          />
+          
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            value={formData.message}
+            onChange={handleChange}
+            rows={4}
+            className={`w-full p-3 rounded-lg border-2 focus:outline-none focus:ring-2 
+              ${darkMode 
+                ? 'bg-gray-700 text-white border-gray-600 focus:ring-blue-500' 
+                : 'bg-white text-gray-800 border-gray-300 focus:ring-blue-400'
+              }`}
+          ></textarea>
+          
+          <button
+            onClick={handleSubmit}
+            className={`w-full p-3 rounded-lg flex items-center justify-center space-x-2 
+              ${darkMode 
+                ? 'bg-blue-600 hover:bg-blue-700 text-white' 
+                : 'bg-blue-500 hover:bg-blue-600 text-white'
+              } transition-colors duration-300`}
+          >
+            <Send size={20} />
+            <span>Send Message</span>
+          </button>
+        </div>
+        
+        <p className={`mt-6 text-center text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
+          We typically respond within 24 hours
+        </p>
       </div>
-      <p className={`mt-8 text-center text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-        We're here to help! Reach out to us anytime.
-      </p>
     </div>
   );
 };
