@@ -13,6 +13,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
+    "emailjs-com": "^3.2.0",
     "express": "^4.21.1",
     "framer-motion": "^11.11.10",
     "gh-pages": "^6.2.0",

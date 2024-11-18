@@ -3,7 +3,9 @@ import VideoSection from './VideoSection';
 import HeroSection from './HeroSection';
 import IPTVPackages from './IPTVPackages';
 import Footer from './Footer';
+import Contact from './Contact';
 import { DarkModeContext } from './DarkModeContext';
+
 
 const Home = () => {
   const { darkMode } = useContext(DarkModeContext);
@@ -14,6 +16,7 @@ const Home = () => {
         <HeroSection />
         <VideoSection />
         <IPTVPackages />
+        <Contact />
       </div>
       <Footer />
     </div>
