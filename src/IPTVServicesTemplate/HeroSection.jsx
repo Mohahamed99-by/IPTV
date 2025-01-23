@@ -3,10 +3,15 @@ import { Zap, Play } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 import iptv from "../assets/iptv1.jpg";
 import { useDarkMode } from './DarkModeContext';
+import { useTranslation } from 'react-i18next'; // Import useTranslation hook
+
+// Ensure i18n is initialized before using translations
+import '../i18n'; // Import your i18n setup
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const { darkMode } = useDarkMode();
+  const { t } = useTranslation(); // Initialize translation hook
 
   useEffect(() => {
     setIsVisible(true);
@@ -26,18 +31,18 @@ const HeroSection = () => {
             }`}
           >
             <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
-              Experience TV Like Never Before
+              {t('title')}
             </h1>
             <p className={`mt-6 text-xl max-w-3xl transition-all duration-1000 delay-300 ${
               darkMode ? 'text-gray-300' : 'text-gray-100'
             } ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-              Unlimited channels, crystal-clear HD quality, and on-demand content at your fingertips. Welcome to the future of television.
+              {t('description')}
             </p>
             <div className={`mt-10 flex items-center space-x-6 transition-all duration-1000 delay-500 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}>
               <NavLink
-                to="/packages/IPTV/"
+                to="/packages"
                 className={`group relative rounded-full font-semibold transition-all duration-300 hover:shadow-lg hover:scale-105 py-3 px-6 ${
                   darkMode 
                     ? 'bg-blue-500 text-white hover:bg-blue-600' 
@@ -45,7 +50,7 @@ const HeroSection = () => {
                 }`}
               >
                 <span className="relative z-10 flex items-center">
-                  View Packages
+                  {t('viewPackages')}
                   <Zap className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:rotate-12" />
                 </span>
               </NavLink>
@@ -57,7 +62,7 @@ const HeroSection = () => {
                 <span className={`relative after:content-[''] after:absolute after:h-0.5 after:left-0 after:bottom-0 after:transition-all after:duration-300 group-hover:after:w-full ${
                   darkMode ? 'after:bg-blue-300' : 'after:bg-white'
                 } after:w-0`}>
-                  Watch Demo
+                  {t('watchDemo')}
                 </span>
               </a>
             </div>

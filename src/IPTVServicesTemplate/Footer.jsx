@@ -1,10 +1,17 @@
 import React, { useContext } from 'react';
 import { Instagram, Facebook, Twitter, Linkedin, Send, Phone, MapPin, Mail } from 'lucide-react';
 import { DarkModeContext } from './DarkModeContext';
+import { useTranslation } from 'react-i18next'; // Import the hook
 
 const Footer = () => {
   const { darkMode } = useContext(DarkModeContext);
   const currentYear = new Date().getFullYear();
+  const { t, i18n } = useTranslation(); // Use the hook for translation
+
+
+  const changeLanguage = (lang) => {
+    i18n.changeLanguage(lang); // This changes the language
+  };
 
   return (
     <footer 

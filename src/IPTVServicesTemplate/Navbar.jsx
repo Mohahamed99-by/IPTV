@@ -1,14 +1,18 @@
+// src/components/Navbar.js
 import React, { useState, useEffect, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Menu, X, Moon, Sun } from 'lucide-react';
 import logo from "../assets/logo1.png";
 import { DarkModeContext } from './DarkModeContext';
+import { useTranslation } from 'react-i18next'; // Import the hook
 import "./styles.css";
+import LanguageSwitcher from '../LanguageSwitcher';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+  const { t, i18n } = useTranslation(); // Use the hook for translation
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,6 +43,10 @@ const Navbar = () => {
       : 'bg-gradient-to-r from-blue-500 to-purple-600';
   };
 
+  const changeLanguage = (lang) => {
+    i18n.changeLanguage(lang); // This changes the language
+  };
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${getNavBackground()}`}>
       <div className="container mx-auto px-4">
@@ -52,20 +60,20 @@ const Navbar = () => {
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
-            <NavLink to="/IPTV/" className={navLinkStyles}>Home</NavLink>
-            <NavLink to="/packages/IPTV" className={navLinkStyles}>Packages</NavLink>
-            <NavLink to="/contact/IPTV" className={navLinkStyles}>Contact</NavLink>
+            <NavLink to="/" className={navLinkStyles}>{t('home')}</NavLink>
+            <NavLink to="/packages" className={navLinkStyles}>{t('packages')}</NavLink>
+            <NavLink to="/contact" className={navLinkStyles}>{t('contact')}</NavLink>
           </div>
 
           <div className="flex items-center gap-4">
+            {/* Language Switcher */}
+            <button onClick={() => changeLanguage('en')} className="text-white hover:text-blue-400">EN</button>
+            <button onClick={() => changeLanguage('ar')} className="text-white hover:text-blue-400">AR</button>
+
             {/* Dark Mode Toggle Button */}
             <button 
               onClick={toggleDarkMode}
-              className={`p-2 rounded-lg transition-all duration-300 transform hover:scale-110 ${
-                darkMode 
-                  ? 'bg-gray-800 text-yellow-400 hover:bg-gray-700' 
-                  : 'bg-blue-600 text-yellow-300 hover:bg-blue-700'
-              }`}
+              className={`p-2 rounded-lg transition-all duration-300 transform hover:scale-110 ${darkMode ? 'bg-gray-800 text-yellow-400 hover:bg-gray-700' : 'bg-blue-600 text-yellow-300 hover:bg-blue-700'}`}
               aria-label="Toggle Dark Mode"
             >
               {darkMode ? (
@@ -91,27 +99,18 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu */}
-        <div className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
-          isOpen ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
-        }`}>
+        <div className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'}`}>
           <div className="py-2 space-y-1">
-            {[
-              { to: "/IPTV", text: "Home" },
-              { to: "/packages/IPTV", text: "Packages" },
-              { to: "/contact/IPTV", text: "Contact" }
-            ].map((link) => (
-              <NavLink 
-                key={link.to}
-                to={link.to} 
-                className={`block px-4 py-2 rounded-lg transition-colors duration-300 ${
-                  darkMode 
-                    ? 'text-gray-300 hover:bg-gray-800 hover:text-blue-400' 
-                    : 'text-white hover:bg-white/10'
-                }`}
-                onClick={() => setIsOpen(false)}
-              >
-                {link.text}
-              </NavLink>
+            {[{ to: "/", text: t('home') }, { to: "/packages", text: t('packages') }, { to: "/contact", text: t('contact') }]
+              .map((link) => (
+                <NavLink 
+                  key={link.to}
+                  to={link.to} 
+                  className={`block px-4 py-2 rounded-lg transition-colors duration-300 ${darkMode ? 'text-gray-300 hover:bg-gray-800 hover:text-blue-400' : 'text-white hover:bg-white/10'}`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.text}
+                </NavLink>
             ))}
           </div>
         </div>

@@ -22,9 +22,9 @@ const IPTVRouter = () => {
         
         <div className="flex-grow">
           <Routes>
-            <Route path="/IPTV" element={<Home />} />
-            <Route path="/packages/IPTV" element={<IPTVPackages  />} />
-            <Route path="/contact/IPTV" element={<Contact />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/packages" element={<IPTVPackages  />} />
+            <Route path="/contact" element={<Contact />} />
 
           </Routes>
         </div>

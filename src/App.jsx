@@ -8,8 +8,7 @@ function App() {
   return (
     <>
    <DarkModeProvider >
-    <IPTVRouter basename="/IPTV"/>
-     
+    <IPTVRouter />
    </DarkModeProvider>
       
       
