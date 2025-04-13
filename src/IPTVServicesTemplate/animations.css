@@ -37,3 +37,60 @@
 .animate-spin-slow {
   animation: spin-slow 8s linear infinite;
 }
+
+@keyframes beam {
+  0% {
+    opacity: 0.3;
+    transform: translateY(0) rotate(var(--rotation));
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateY(-30px) rotate(var(--rotation));
+  }
+  100% {
+    opacity: 0.3;
+    transform: translateY(0) rotate(var(--rotation));
+  }
+}
+
+.animate-beam {
+  --rotation: 35deg;
+  animation: beam 8s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes gradient-xy {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.animate-gradient-xy {
+  animation: gradient-xy 15s ease infinite;
+  background-size: 300% 300%;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
