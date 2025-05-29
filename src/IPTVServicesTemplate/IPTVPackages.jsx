@@ -20,16 +20,16 @@ const IPTVPackages = () => {
     {
       title: "Premium Package",
       description: "300+ channels with HD quality and on-demand content",
-      price: "$24.99/month",
-      originalPrice: "$27.99/month",
+      price: "$24.99/6 months",
+      originalPrice: "$27.99/6 months",
       MonthsFree: "+1 Month Free",
       icon: image2,  // Correctly assign the image
     },
     {
       title: "Ultimate Package",
       description: "500+ channels, 4K quality, multiple device support, and exclusive content",
-      price: "$34.99/month",
-      originalPrice: "$36.99/month",
+      price: "$34.99/year",
+      originalPrice: "$36.99/year",
       MonthsFree: "+3 Months Free",
       icon: image3,  // Correctly assign the image
     }

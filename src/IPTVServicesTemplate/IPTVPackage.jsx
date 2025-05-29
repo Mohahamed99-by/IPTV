@@ -12,7 +12,7 @@ const IPTVPackage = ({ title, description, price, icon, MonthsFree, originalPric
   const features = [
     "No Contract Required",
     "24/7 Customer Support",
-    "HD Quality Streaming",
+    "4K Quality Streaming",
     "Multi-device Support"
   ];
 
