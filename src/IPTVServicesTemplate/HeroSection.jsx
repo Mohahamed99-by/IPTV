@@ -55,7 +55,7 @@ const HeroSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-32 relative z-10">
         <div className="lg:flex lg:items-center lg:gap-16 lg:justify-between">
           {/* Left Content */}
-          <motion
+          <motion.div
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -156,7 +156,7 @@ const HeroSection = () => {
                 </span>
               </a>
             </motion.div>
-          </motion>
+          </motion.div>
 
           {/* Right Content - Image */}
           <motion.div 
